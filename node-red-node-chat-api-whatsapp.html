@@ -1,0 +1,46 @@
+<script type="text/javascript">
+    RED.nodes.registerType('node-red-node-chat-api-whatsapp',{
+        category: 'function',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+            urlInstance: {value:"", required: true},
+            token: {value:"", required: true},
+        },
+        inputs:1,
+        outputs:0,
+        icon: "bridge-dash.png",
+        label: function() {
+            return this.name||"node-red-node-chat-api-whatsapp";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="node-red-node-chat-api-whatsapp">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-urlInstance"><i class="icon-tag"></i> URL Instance</label>
+        <input type="text" id="node-input-urlInstance" placeholder="URL Instance">
+    </div>
+    <div class="form-row">
+        <label for="node-input-token"><i class="icon-tag"></i> Token</label>
+        <input type="text" id="node-input-token" placeholder="Token">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="node-red-node-chat-api-whatsapp">
+    <p>Node para enviar mensagem no Whatsapp via Chat API</p>
+    <p>O node espera o seguinte payload</p>
+    <p>
+      <code>
+        msg.payload = <br>{
+          <br><b>phone</b>: "5511999991111", //Country code without +
+          <br><b>text</b>: "Message to be sent",
+        <br>}
+      </code>
+    </p>
+</script>
